@@ -7,7 +7,6 @@ class Driver {
   yearsExperienceFromBeginningOf(year) {
     return year - this.startDate.getFullYear();
   }
-
 }
 
 class Route {
@@ -19,5 +18,13 @@ class Route {
   blocksTravelled() {
     let eastWest = ['1st Avenue', '2nd Avenue', '3rd Avenue', 'Lexington Avenue', 'Park', 'Madison Avenue', '5th Avenue'];
     return Math.abs(this.endingLocation.vertical - this.beginningLocation.vertical) + Math.abs(eastWest.indexOf(this.endingLocation.horizontal) - eastWest.indexOf(this.beginningLocation.horizontal));
+  }
+
+  estimatedTime(peak) {
+    if (peak) {
+      return this.blocksTravelled() / 2;
+    } else {
+      return this.blocksTravelled() / 3;
+    }
   }
 }
